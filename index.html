@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/7647b5bc6a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="header">
+    <div class="container">
+      <nav>
+        <img src="images/po.jpeg" class="po">
+        <ul id="sidemenu">
+          <li><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <i class="fas fa-times" onclick="closemenu()"></i>
+        </ul>
+        <i class="fas fa-bars" onclick="openmenu()"></i>
+      </nav>
+      <div class="header-text">
+        <p>Hi,I'm <br>Abhishek Gajula</p>
+        <h1>I am a B.Tech aspirant in Computer Science and Engineering.</h1>
+      </div>
+    </div>
+  </div> 
+  <!--------------about--------->
+  <div id="about">
+    <div class="container">
+      <div class="row">
+        <div class="about-col-1">
+         <img src="images/boy.jpg"> 
+        </div>
+        <div class="about-col-2">
+          <h1 class="sub-title">About Me</h1>
+          <p>Hello! My Name Is Abhishek Gajula, I Am From Hyderabad, Currently In My Second Year Of Enginnering. I love coding . My dream is to be a captain in  INDIAN ARMY</p>
+          <div class="tab-titles">
+            <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+            <p class="tab-links" onclick="opentab('education')">Education</p>
+           
+          </div>
+          <div class="tab-contents active-tab" id="skills">
+            <ul>
+              <li><span>C</span><br> </li>
+              <li><span>C++</span><br></li>
+              <li><span>Python</span><br></li>
+              <li><span>Frontend(HTML, CSS, JavaScript)</span><br></li>
+            </ul>
+          </div>
+          <div class="tab-contents" id="education">
+            <ul>
+              <li><span>2022</span><br>I am currently doing my higher studies at Srm Institue of Science and Technology</li>
+              <li><span>2020</span><br>I completed my 12th at Narayana junior college </li>
+              <li><span>2018</span><br>I finished my schooling from Gitanjali Senior School</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ <!--------------services--------->
+ <div id="skills">
+  <div class="container">
+    <h1 class="sub-title">My skills</h1>
+    <div class="skills-list">
+      <div>
+        <i class="fa-brands fa-free-code-camp"></i>
+        <h2>C</h2>
+        <p>I learnt C language and partcipated in many contest in my first year using c language and solved many Hackerrank Question</p>
+      </div>
+        <div>
+          <i class="fa-sharp fa-solid fa-microchip"></i>
+        <h2>C++</h2>
+        <p>I learnt C++ language and solved many question in Codechef </p>
+       
+      </div>
+        <div>
+          <i class="fa-brands fa-python"></i>
+        <h2>Python</h2>
+        <p>I learnt Python </p>
+       
+      </div>
+
+      </div>
+
+    </div>
+  </div>
+ </div>
+ <!----contact--->
+ <div id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="contact-left">
+        <h1 class="sub-title">Contact Me</h1>
+        <p><i class="fa-sharp fa-solid fa-paper-plane"></i>abhisriakhi@gmail.com</p>
+        <p><i class="fa-solid fa-phone"></i>9010042382</p>
+        <div class="social-icon">
+          <a href="https://www.instagram.com/abhis.hek03/"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/abhishek-gajula-537024194/"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="contact-right">
+        <form name="submit-to-google-sheet">
+           <input type="text" name="Name" placeholder="Your Name" required>
+           <input type="email" name="Email" placeholder="Your email" required>
+           <textarea name="Message"  rows="6" placeholder="Your Message"></textarea>
+           <button type="submit" class= "btn btn2">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">
+    <p>Copyright ©  Abhishek Gajula</p> 
+  </div>
+ </div>
+  <script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname) {
+      for(tablink of tablinks){
+        tablink.classList.remove("active-link");
+      }
+      for(tabcontent of tabcontents){
+        tabcontent.classList.remove("active-tab");
+      }
+      event.currentTarget.classList.add("active-link");
+      document.getElementById(tabname).classList.add("active-tab");
+    }
+  </script> 
+  <script>
+    var sidemenu =document.getElementById("sidemenu");
+
+    function openmenu(){
+      sidemenu.style.right= "0";
+    }
+    function closemenu(){
+      sidemenu.style.right= "-200px";
+    }
+  </script>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx9WmEZ-IOD9km8UFNF30A2Xk_m_fW25jhJkhL-_mUmT711C-KMAOb76PutQkak5-cZ/exec'
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
